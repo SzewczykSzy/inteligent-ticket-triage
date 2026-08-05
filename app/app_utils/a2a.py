@@ -42,8 +42,7 @@ def _default_capabilities() -> AgentCapabilities:
         extensions=[
             AgentExtension(
                 uri=_ADK_AGENT_EXECUTOR_EXTENSION_URI,
-                description=(
-                    "Ability to use the new agent executor implementation"),
+                description=("Ability to use the new agent executor implementation"),
             ),
         ],
     )
@@ -70,8 +69,7 @@ async def attach_a2a_routes(
     the card is built asynchronously; repeated calls register duplicate routes.
     """
     resolved_app_url = app_url or os.getenv("APP_URL", "http://0.0.0.0:8000")
-    resolved_agent_version = agent_version or os.getenv(
-        "AGENT_VERSION", "0.1.0")
+    resolved_agent_version = agent_version or os.getenv("AGENT_VERSION", "0.1.0")
     resolved_capabilities = capabilities or _default_capabilities()
 
     agent_card = await AgentCardBuilder(
@@ -86,8 +84,7 @@ async def attach_a2a_routes(
         task_store=task_store,
     )
 
-    a2a_app = A2AFastAPIApplication(
-        agent_card=agent_card, http_handler=request_handler)
+    a2a_app = A2AFastAPIApplication(agent_card=agent_card, http_handler=request_handler)
     a2a_app.add_routes_to_app(
         app,
         agent_card_url=f"{rpc_path}{AGENT_CARD_WELL_KNOWN_PATH}",

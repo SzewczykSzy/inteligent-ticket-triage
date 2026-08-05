@@ -6,6 +6,7 @@ from google.adk.apps import App
 from google.adk.models.lite_llm import LiteLlm
 
 from app.prompts import load_prompt
+from app.tools import check_service_status, escalate_to_human
 
 load_dotenv()
 
@@ -18,7 +19,7 @@ root_agent = Agent(
         api_key=os.getenv("LMSTUDIO_API_KEY"),
     ),
     instruction=load_prompt("triage_system.txt"),
-    tools=[],
+    tools=[check_service_status, escalate_to_human],
 )
 
 app = App(

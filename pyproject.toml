@@ -13,6 +13,7 @@ dependencies = [
     "opentelemetry-instrumentation-google-genai>=0.1.0,<1.0.0",
     "gcsfs>=2024.11.0",
     "google-cloud-logging>=3.12.0,<4.0.0",
+    "httpx2>=2.9.1",
 ]
 requires-python = ">=3.11,<3.14"
 
@@ -89,6 +90,10 @@ build-backend = "hatchling.build"
 [tool.pytest.ini_options]
 pythonpath = "."
 asyncio_default_fixture_loop_scope = "session"
+filterwarnings = [
+    "ignore::DeprecationWarning:google.adk.*",
+    "ignore:BaseAgentConfig is deprecated:DeprecationWarning",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["app","frontend"]

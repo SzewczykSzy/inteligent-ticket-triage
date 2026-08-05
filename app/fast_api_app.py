@@ -24,6 +24,7 @@ from google.adk.cli.fast_api import get_fast_api_app
 from google.adk.runners import Runner
 from google.cloud import logging as google_cloud_logging
 
+from app.api.v1.triage import router as triage_router
 from app.app_utils import services
 from app.app_utils.a2a import attach_a2a_routes
 from app.app_utils.telemetry import setup_telemetry
@@ -75,6 +76,7 @@ app: FastAPI = get_fast_api_app(
 )
 app.title = "inteligent-ticket-triage"
 app.description = "API for interacting with the Agent inteligent-ticket-triage"
+app.include_router(triage_router)
 
 
 @app.post("/feedback")

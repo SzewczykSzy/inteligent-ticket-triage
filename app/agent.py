@@ -14,12 +14,15 @@
 # limitations under the License.
 
 import datetime
+import os
 from zoneinfo import ZoneInfo
 
+from dotenv import load_dotenv
 from google.adk.agents import Agent
 from google.adk.apps import App
-from google.adk.models import Gemini
-from google.genai import types
+from google.adk.models.lite_llm import LiteLlm
+
+load_dotenv()
 
 
 def get_weather(query: str) -> str:
@@ -57,9 +60,10 @@ def get_current_time(query: str) -> str:
 
 root_agent = Agent(
     name="root_agent",
-    model=Gemini(
-        model="gemini-flash-latest",
-        retry_options=types.HttpRetryOptions(attempts=3),
+    model=LiteLlm(
+        model="openai/lmstudio",
+        api_base="http://192.168.0.195:1234/v1",
+        api_key=os.getenv("LMSTUDIO_API_KEY"),
     ),
     instruction="You are a helpful AI assistant designed to provide accurate and useful information.",
     tools=[get_weather, get_current_time],

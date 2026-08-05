@@ -1,17 +1,3 @@
-# Copyright 2026 Google LLC
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 """Attach A2A (Agent2Agent) endpoints to the FastAPI app.
 
 func:`attach_a2a_routes` registers the dynamic
@@ -56,7 +42,8 @@ def _default_capabilities() -> AgentCapabilities:
         extensions=[
             AgentExtension(
                 uri=_ADK_AGENT_EXECUTOR_EXTENSION_URI,
-                description=("Ability to use the new agent executor implementation"),
+                description=(
+                    "Ability to use the new agent executor implementation"),
             ),
         ],
     )
@@ -83,7 +70,8 @@ async def attach_a2a_routes(
     the card is built asynchronously; repeated calls register duplicate routes.
     """
     resolved_app_url = app_url or os.getenv("APP_URL", "http://0.0.0.0:8000")
-    resolved_agent_version = agent_version or os.getenv("AGENT_VERSION", "0.1.0")
+    resolved_agent_version = agent_version or os.getenv(
+        "AGENT_VERSION", "0.1.0")
     resolved_capabilities = capabilities or _default_capabilities()
 
     agent_card = await AgentCardBuilder(
@@ -98,7 +86,8 @@ async def attach_a2a_routes(
         task_store=task_store,
     )
 
-    a2a_app = A2AFastAPIApplication(agent_card=agent_card, http_handler=request_handler)
+    a2a_app = A2AFastAPIApplication(
+        agent_card=agent_card, http_handler=request_handler)
     a2a_app.add_routes_to_app(
         app,
         agent_card_url=f"{rpc_path}{AGENT_CARD_WELL_KNOWN_PATH}",

@@ -1,8 +1,7 @@
 import os
 from unittest.mock import patch
 
-from google.adk.artifacts import FileArtifactService, InMemoryArtifactService
-from google.adk.cli.utils.service_factory import create_session_service_from_options
+from google.adk.artifacts import FileArtifactService
 from google.adk.sessions import DatabaseSessionService
 
 from app.app_utils.services import get_artifact_service, get_session_service

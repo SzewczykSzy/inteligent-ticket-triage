@@ -12,6 +12,8 @@ dependencies = [
     "aiohttp>=3.13.4",
     "opentelemetry-instrumentation-google-genai>=0.1.0,<1.0.0",
     "httpx2>=2.9.1",
+    "opentelemetry-exporter-otlp>=1.42.1",
+    "opentelemetry-sdk>=1.42.1",
 ]
 requires-python = ">=3.11,<3.14"
 

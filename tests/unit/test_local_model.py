@@ -45,8 +45,7 @@ async def test_lite_llm_generate_content_mocked():
 
         request = LlmRequest(
             contents=[
-                types.Content(role="user", parts=[
-                              types.Part.from_text(text="Hi")])
+                types.Content(role="user", parts=[types.Part.from_text(text="Hi")])
             ]
         )
 

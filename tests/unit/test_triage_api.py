@@ -1,6 +1,13 @@
+from unittest.mock import patch
+
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
+from google.adk.events import Event
+from google.adk.runners import InMemoryRunner
+from google.genai import types
 
+from app.agent import root_agent
+from app.api.v1.triage import parse_triage_response
 from app.api.v1.triage import router as triage_router
 from app.schemas import TicketCategory, TicketPriority, TicketRequest, TriageResponse
 
@@ -32,24 +39,47 @@ def test_triage_response_schema():
     assert res.needs_human_escalation is True
 
 
-def test_triage_endpoint_v1():
-    payload = {
-        "ticket_text": "Database is not working for 15 minutes, error 500 is thrown."
-    }
-    response = client.post("/api/v1/triage", json=payload)
-    assert response.status_code == 200
-    data = response.json()
-    assert "category" in data
-    assert "priority" in data
-    assert "recommended_action" in data
-    assert "needs_human_escalation" in data
-    assert data["category"] == "DATABASE"
-    assert data["priority"] == "HIGH"
+def test_parse_triage_response_plain_json():
+    json_text = '{"category": "DATABASE", "priority": "HIGH", "recommended_action": "Check DB pool", "needs_human_escalation": true}'
+    parsed = parse_triage_response(json_text)
+    assert parsed.category == TicketCategory.DATABASE
+    assert parsed.priority == TicketPriority.HIGH
+    assert parsed.needs_human_escalation is True
 
 
-# TODO: Remove this test after triaging is implemented
-def test_triage_endpoint_legacy_path():
-    payload = {"ticket_text": "Network is down"}
-    response = client.post("/triage", json=payload)
-    assert response.status_code == 200
-    assert response.json()["category"] == "DATABASE"
+def test_parse_triage_response_markdown_fenced():
+    markdown_text = 'Here is the result:\n```json\n{"category": "NETWORK", "priority": "MEDIUM", "recommended_action": "Reset gateway", "needs_human_escalation": false}\n```'
+    parsed = parse_triage_response(markdown_text)
+    assert parsed.category == TicketCategory.NETWORK
+    assert parsed.priority == TicketPriority.MEDIUM
+    assert parsed.needs_human_escalation is False
+
+
+def test_triage_endpoint_v1_mocked_runner():
+    mock_json = '{"category": "DATABASE", "priority": "HIGH", "recommended_action": "Check database connection pool", "needs_human_escalation": true}'
+
+    app_instance.state.runner = InMemoryRunner(
+        agent=root_agent, app_name="app")
+
+    async def mock_run_async(*args, **kwargs):
+        yield Event(
+            author="root_agent",
+            content=types.Content(
+                role="model",
+                parts=[types.Part.from_text(text=mock_json)],
+            ),
+        )
+
+    with patch.object(
+        app_instance.state.runner, "run_async", side_effect=mock_run_async
+    ):
+        payload = {
+            "ticket_text": "Database is not working for 15 minutes, error 500 is thrown."
+        }
+        response = client.post("/api/v1/triage", json=payload)
+        assert response.status_code == 200, f"Unexpected response: {response.json()}"
+        data = response.json()
+        assert data["category"] == "DATABASE"
+        assert data["priority"] == "HIGH"
+        assert data["needs_human_escalation"] is True
+        assert "Check database" in data["recommended_action"]

@@ -83,3 +83,65 @@ def test_triage_endpoint_v1_mocked_runner():
         assert data["priority"] == "HIGH"
         assert data["needs_human_escalation"] is True
         assert "Check database" in data["recommended_action"]
+
+
+def test_triage_endpoint_v1_parse_retry():
+    # Missing required fields
+    mock_invalid_json = '{"category": "INVALID", "priority": "HIGH"}'
+    mock_valid_json = '{"category": "DATABASE", "priority": "HIGH", "recommended_action": "Check database connection pool", "needs_human_escalation": true}'
+
+    app_instance.state.runner = InMemoryRunner(
+        agent=root_agent, app_name="app")
+
+    call_count = {"count": 0}
+
+    async def mock_run_async(*args, **kwargs):
+        call_count["count"] += 1
+        if call_count["count"] == 1:
+            yield Event(
+                author="root_agent",
+                content=types.Content(
+                    role="model",
+                    parts=[types.Part.from_text(text=mock_invalid_json)],
+                ),
+            )
+        else:
+            yield Event(
+                author="root_agent",
+                content=types.Content(
+                    role="model",
+                    parts=[types.Part.from_text(text=mock_valid_json)],
+                ),
+            )
+
+    with patch.object(
+        app_instance.state.runner, "run_async", side_effect=mock_run_async
+    ):
+        payload = {
+            "ticket_text": "Database is not working for 15 minutes, error 500 is thrown."
+        }
+        response = client.post("/api/v1/triage", json=payload)
+        assert response.status_code == 200, f"Unexpected response: {response.json()}"
+        data = response.json()
+        assert data["category"] == "DATABASE"
+        assert call_count["count"] == 2
+
+
+def test_triage_endpoint_v1_connection_error():
+    app_instance.state.runner = InMemoryRunner(
+        agent=root_agent, app_name="app")
+
+    async def mock_run_async_connection_error(*args, **kwargs):
+        raise ConnectionError("Failed to connect to LM Studio")
+        # Need a yield so it's a generator
+        yield
+
+    with patch.object(
+        app_instance.state.runner, "run_async", side_effect=mock_run_async_connection_error
+    ):
+        payload = {
+            "ticket_text": "Database is not working."
+        }
+        response = client.post("/api/v1/triage", json=payload)
+        assert response.status_code == 503
+        assert "LM Studio connection error" in response.json()["detail"]

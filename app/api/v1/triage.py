@@ -63,28 +63,50 @@ async def triage_ticket(ticket_req: TicketRequest, request: Request) -> TriageRe
             parts=[types.Part.from_text(text=input_text)],
         )
 
-        final_response_text = ""
-        async for event in runner.run_async(
-            user_id=user_id,
-            session_id=session.id,
-            new_message=user_message,
-        ):
-            if hasattr(event, "content") and event.content and event.content.parts:
-                for part in event.content.parts:
-                    if hasattr(part, "text") and part.text:
-                        final_response_text += part.text
+        max_retries = 2
+        for attempt in range(max_retries + 1):
+            final_response_text = ""
+            async for event in runner.run_async(
+                user_id=user_id,
+                session_id=session.id,
+                new_message=user_message,
+            ):
+                if hasattr(event, "content") and event.content and event.content.parts:
+                    for part in event.content.parts:
+                        if hasattr(part, "text") and part.text:
+                            final_response_text += part.text
 
-        if not final_response_text:
-            raise HTTPException(
-                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-                detail="Agent yielded empty response.",
-            )
+            if not final_response_text:
+                raise HTTPException(
+                    status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                    detail="Agent yielded empty response.",
+                )
 
-        return parse_triage_response(final_response_text)
+            try:
+                return parse_triage_response(final_response_text)
+            except ValueError as ve:
+                if attempt < max_retries:
+                    error_msg = f"Failed to parse JSON. Error: {ve}. Please return ONLY valid JSON matching the TriageResponse schema."
+                    user_message = types.Content(
+                        role="user",
+                        parts=[types.Part.from_text(text=error_msg)]
+                    )
+                else:
+                    raise HTTPException(
+                        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                        detail=f"Agent triage execution failed after retries: {ve}",
+                    ) from ve
 
     except HTTPException:
         raise
     except Exception as e:
+        error_str = str(e).lower()
+        type_str = type(e).__name__.lower()
+        if any(x in error_str or x in type_str for x in ["connect", "timeout", "refused", "unreachable", "service unavailable"]):
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail=f"LM Studio connection error: {e}",
+            ) from e
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Agent triage execution failed: {e}",

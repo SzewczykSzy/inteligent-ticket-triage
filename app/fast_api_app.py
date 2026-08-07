@@ -7,7 +7,7 @@ from logging.handlers import RotatingFileHandler
 
 from a2a.server.tasks import InMemoryTaskStore
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import BackgroundTasks, FastAPI
 from google.adk.cli.fast_api import get_fast_api_app
 from google.adk.runners import Runner
 
@@ -27,9 +27,12 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
         logging.StreamHandler(),
-        RotatingFileHandler(os.path.join(AGENT_DIR, "logs",
-                            "triage.log"), maxBytes=10485760, backupCount=5),
-    ]
+        RotatingFileHandler(
+            os.path.join(AGENT_DIR, "logs", "triage.log"),
+            maxBytes=10485760,
+            backupCount=5,
+        ),
+    ],
 )
 logger = logging.getLogger(__name__)
 
@@ -41,8 +44,7 @@ def log_feedback(feedback_data: dict):
 
 
 allow_origins = (
-    os.getenv("ALLOW_ORIGINS", "").split(
-        ",") if os.getenv("ALLOW_ORIGINS") else None
+    os.getenv("ALLOW_ORIGINS", "").split(",") if os.getenv("ALLOW_ORIGINS") else None
 )
 
 
@@ -84,17 +86,20 @@ app.include_router(triage_router)
 
 
 @app.post("/feedback")
-def collect_feedback(feedback: Feedback) -> dict[str, str]:
-    """Collect and log feedback.
+def collect_feedback(
+    feedback: Feedback, background_tasks: BackgroundTasks
+) -> dict[str, str]:
+    """Collect and log feedback asynchronously in a background task.
 
     Args:
         feedback: The feedback data to log
+        background_tasks: FastAPI BackgroundTasks manager
 
     Returns:
         Success message
     """
-    log_feedback(feedback.model_dump())
-    logger.info("Feedback received and logged.")
+    background_tasks.add_task(log_feedback, feedback.model_dump())
+    logger.info("Feedback task queued.")
     return {"status": "success"}
 
 

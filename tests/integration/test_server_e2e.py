@@ -38,12 +38,20 @@ from a2a.types import (
 from requests.exceptions import RequestException
 
 
+from dotenv import load_dotenv
+
+
 def is_llm_server_online() -> bool:
+    load_dotenv()
     api_base = os.getenv("LMSTUDIO_API_BASE", "http://localhost:1234/v1")
+    api_key = os.getenv("LMSTUDIO_API_KEY")
     models_url = f"{api_base.rstrip('/')}/models"
+    headers = {"User-Agent": "pytest"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
     try:
-        req = urllib.request.Request(models_url, headers={"User-Agent": "pytest"})
-        with urllib.request.urlopen(req, timeout=2) as response:
+        req = urllib.request.Request(models_url, headers=headers)
+        with urllib.request.urlopen(req, timeout=3) as response:
             return response.status == 200
     except Exception:
         return False

@@ -92,6 +92,8 @@ asyncio_default_fixture_loop_scope = "session"
 filterwarnings = [
     "ignore::DeprecationWarning:google.adk.*",
     "ignore:BaseAgentConfig is deprecated:DeprecationWarning",
+    "ignore::pydantic.warnings.PydanticDeprecatedSince211",
+    "ignore:.*JSON_SCHEMA_FOR_FUNC_DECL is enabled:UserWarning",
 ]
 
 [tool.hatch.build.targets.wheel]

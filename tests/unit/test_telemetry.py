@@ -23,9 +23,10 @@ def test_setup_telemetry(tmp_path):
             return os.path.join(str(tmp_path), "telemetry.py")
         return orig_abspath(path)
 
-    with patch('os.path.abspath', side_effect=mock_abspath), \
-            patch('os.path.dirname', side_effect=mock_dirname):
-
+    with (
+        patch("os.path.abspath", side_effect=mock_abspath),
+        patch("os.path.dirname", side_effect=mock_dirname),
+    ):
         setup_telemetry()
 
         # Verify that logs/traces.json was created

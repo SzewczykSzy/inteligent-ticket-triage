@@ -1,5 +1,5 @@
 import pytest
-from app.agent import root_agent
+
 from app.tools import check_service_status, escalate_to_human, load_services_state
 
 
@@ -27,10 +27,14 @@ async def test_escalate_to_human():
     assert "Tier-3" in assigned_team
 
 
-def test_tools_registered_in_root_agent():
-    tool_names = [tool.__name__ for tool in root_agent.tools]
-    assert "check_service_status" in tool_names
-    assert "escalate_to_human" in tool_names
+def test_tools_registered_in_workflow_agents():
+    from app.agents import diagnostic_agent, escalation_agent
+
+    diag_tools = [tool.__name__ for tool in diagnostic_agent.tools]
+    esc_tools = [tool.__name__ for tool in escalation_agent.tools]
+
+    assert "check_service_status" in diag_tools
+    assert "escalate_to_human" in esc_tools
 
 
 def test_load_services_state():

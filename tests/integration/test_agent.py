@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import os
+import urllib.request
+
+import pytest
+from dotenv import load_dotenv
 from google.adk.agents.run_config import RunConfig, StreamingMode
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
@@ -20,6 +25,26 @@ from google.genai import types
 from app.agent import root_agent
 
 
+def is_llm_server_online() -> bool:
+    load_dotenv()
+    api_base = os.getenv("LMSTUDIO_API_BASE", "http://localhost:1234/v1")
+    api_key = os.getenv("LMSTUDIO_API_KEY")
+    models_url = f"{api_base.rstrip('/')}/models"
+    headers = {"User-Agent": "pytest"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+    try:
+        req = urllib.request.Request(models_url, headers=headers)
+        with urllib.request.urlopen(req, timeout=3) as response:
+            return response.status == 200
+    except Exception:
+        return False
+
+
+@pytest.mark.skipif(
+    not is_llm_server_online(),
+    reason="LM Studio local LLM server is offline or unreachable",
+)
 def test_agent_stream() -> None:
     """
     Integration test for the agent stream functionality.

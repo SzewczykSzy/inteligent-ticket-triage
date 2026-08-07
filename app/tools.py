@@ -19,7 +19,7 @@ def load_services_state() -> dict[str, str]:
     """Reads service state dictionary from local JSON file or returns defaults."""
     if SERVICES_FILE_PATH.exists():
         try:
-            with open(SERVICES_FILE_PATH, "r", encoding="utf-8") as f:
+            with open(SERVICES_FILE_PATH, encoding="utf-8") as f:
                 return json.load(f)
         except Exception:
             pass

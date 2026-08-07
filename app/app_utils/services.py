@@ -10,7 +10,7 @@ from __future__ import annotations
 import functools
 import os
 
-from google.adk.artifacts import FileArtifactService, InMemoryArtifactService
+from google.adk.artifacts import FileArtifactService
 from google.adk.cli.service_registry import get_service_registry
 from google.adk.cli.utils.service_factory import create_session_service_from_options
 from google.adk.sessions import DatabaseSessionService

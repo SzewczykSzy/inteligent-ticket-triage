@@ -7,6 +7,7 @@ __pycache__/
 /tmp
 /out-tsc
 /bazel-out
+logs/
 
 # C extensions
 *.so
@@ -207,3 +208,9 @@ tools/a2a-inspector/
 *.pem
 *-key.json
 credentials*.json
+
+# Data files, traces, and feedback logs
+traces.json
+sessions.db
+feedback.jsonl
+

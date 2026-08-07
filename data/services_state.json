@@ -1,0 +1,10 @@
+{
+  "database": "CRITICAL: High CPU utilization (98%) and connection pool exhausted. 500 internal server errors reported.",
+  "db": "CRITICAL: High CPU utilization (98%) and connection pool exhausted. 500 internal server errors reported.",
+  "network": "DEGRADED: Increased latency (250ms) and packet drop rate on regional gateway.",
+  "auth": "HEALTHY: Authentication service operational. SSO and token validation normal.",
+  "authentication": "HEALTHY: Authentication service operational. SSO and token validation normal.",
+  "infrastructure": "DEGRADED: Node worker-03 in NotReady state. Container reschedule in progress.",
+  "software": "HEALTHY: Microservices operating within normal latency SLAs.",
+  "payment": "HEALTHY: Payment gateway processing transactions normally."
+}

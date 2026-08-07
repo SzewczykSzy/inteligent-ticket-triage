@@ -1,12 +1,12 @@
 import logging
 import os
 
+from google.adk.cli.api_server import _setup_instrumentation_lib_if_installed
 from opentelemetry import trace
 from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
-from google.adk.cli.api_server import _setup_instrumentation_lib_if_installed
 
 
 def setup_telemetry() -> None:

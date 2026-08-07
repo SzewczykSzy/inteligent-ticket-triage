@@ -13,19 +13,11 @@ router = APIRouter(tags=["triage"])
 def parse_triage_response(text: str) -> TriageResponse:
     """Extracts and parses JSON from agent completion text into TriageResponse."""
     cleaned = text.strip()
-    match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", cleaned, re.DOTALL)
-    if match:
-        json_str = match.group(1)
-    else:
-        match_obj = re.search(r"(\{.*\})", cleaned, re.DOTALL)
-        if match_obj:
-            json_str = match_obj.group(1)
-        else:
-            json_str = cleaned
+    match = re.search(r"```(?:json)?\s*(.*?)\s*```", cleaned, re.DOTALL)
+    json_str = match.group(1).strip() if match else cleaned
 
     try:
-        data = json.loads(json_str)
-        return TriageResponse.model_validate(data)
+        return TriageResponse.model_validate_json(json_str)
     except Exception as e:
         raise ValueError(
             f"Failed to parse model response into TriageResponse: {e}"

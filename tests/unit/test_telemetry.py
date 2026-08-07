@@ -1,6 +1,4 @@
-import json
 import os
-import tempfile
 from unittest.mock import patch
 
 from app.app_utils.telemetry import setup_telemetry

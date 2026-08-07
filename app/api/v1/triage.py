@@ -1,4 +1,3 @@
-import json
 import re
 import uuid
 
@@ -58,7 +57,12 @@ def extract_triage_response(events: list, full_text: str) -> TriageResponse:
                 except Exception:
                     pass
 
-        if hasattr(event, "content") and event.content and hasattr(event.content, "parts") and event.content.parts:
+        if (
+            hasattr(event, "content")
+            and event.content
+            and hasattr(event.content, "parts")
+            and event.content.parts
+        ):
             event_text = ""
             for part in event.content.parts:
                 if hasattr(part, "text") and part.text:
@@ -165,7 +169,13 @@ async def triage_ticket(ticket_req: TicketRequest, request: Request) -> TriageRe
         type_str = type(e).__name__.lower()
         if any(
             x in error_str or x in type_str
-            for x in ["connect", "timeout", "refused", "unreachable", "service unavailable"]
+            for x in [
+                "connect",
+                "timeout",
+                "refused",
+                "unreachable",
+                "service unavailable",
+            ]
         ):
             raise HTTPException(
                 status_code=status.HTTP_503_SERVICE_UNAVAILABLE,

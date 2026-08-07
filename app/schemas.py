@@ -1,6 +1,5 @@
-from typing import Any
-
 from enum import StrEnum
+
 from pydantic import BaseModel, Field
 
 
@@ -120,4 +119,3 @@ class TriageWorkflowState(BaseModel):
         default=None,
         description="Final schema output produced by EscalationAgent.",
     )
-

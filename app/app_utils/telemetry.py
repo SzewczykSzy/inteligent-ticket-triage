@@ -3,7 +3,6 @@ import os
 
 from google.adk.cli.api_server import _setup_instrumentation_lib_if_installed
 from opentelemetry import trace
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
 from opentelemetry.sdk.resources import Resource
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExporter
@@ -33,16 +32,6 @@ def setup_telemetry() -> None:
         provider.add_span_processor(BatchSpanProcessor(file_exporter))
     except Exception as e:
         logging.error(f"Failed to setup file trace exporter: {e}")
-
-    # 2. OTLP Exporter to Jaeger
-    otlp_endpoint = os.environ.get(
-        "OTEL_EXPORTER_OTLP_ENDPOINT", "http://localhost:4318/v1/traces"
-    )
-    try:
-        otlp_exporter = OTLPSpanExporter(endpoint=otlp_endpoint)
-        provider.add_span_processor(BatchSpanProcessor(otlp_exporter))
-    except Exception as e:
-        logging.error(f"Failed to setup OTLP trace exporter: {e}")
 
     trace.set_tracer_provider(provider)
 

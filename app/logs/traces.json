@@ -6272,3 +6272,1986 @@
         "schema_url": ""
     }
 }
+{
+    "name": "generate_content openai/lmstudio",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0xaced446d99ad9832",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0xa39e02ca0ddd95d3",
+    "start_time": "2026-08-07T13:16:08.109925Z",
+    "end_time": "2026-08-07T13:16:16.665616Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.system": "gemini",
+        "gen_ai.operation.name": "generate_content",
+        "gen_ai.request.model": "openai/lmstudio",
+        "gen_ai.agent.name": "classifier_agent",
+        "gen_ai.conversation.id": "4023ac05-9ee1-4d0d-b594-7f08938ff401",
+        "gcp.vertex.agent.event_id": "8ae4d934-256d-4c90-ae94-b17e368d5cb5",
+        "gcp.vertex.agent.invocation_id": "e-3614e8ea-0e12-4415-8533-bf10c3042f97",
+        "gen_ai.response.finish_reasons": [
+            "stop"
+        ],
+        "gen_ai.usage.input_tokens": 303,
+        "gen_ai.usage.output_tokens": 44,
+        "gen_ai.usage.cache_read.input_tokens": 0
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "call_llm",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0xa39e02ca0ddd95d3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x5ebac01114dc6607",
+    "start_time": "2026-08-07T13:16:08.109715Z",
+    "end_time": "2026-08-07T13:16:16.665813Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.system": "gcp.vertex.agent",
+        "gen_ai.request.model": "openai/lmstudio",
+        "gcp.vertex.agent.invocation_id": "e-3614e8ea-0e12-4415-8533-bf10c3042f97",
+        "gcp.vertex.agent.session_id": "4023ac05-9ee1-4d0d-b594-7f08938ff401",
+        "gcp.vertex.agent.event_id": "8ae4d934-256d-4c90-ae94-b17e368d5cb5",
+        "gcp.vertex.agent.llm_request": "{}",
+        "gcp.vertex.agent.llm_response": "{}",
+        "gen_ai.usage.input_tokens": 303,
+        "gen_ai.usage.output_tokens": 44,
+        "gen_ai.usage.cache_read.input_tokens": 0,
+        "gen_ai.response.finish_reasons": [
+            "stop"
+        ]
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "invoke_agent classifier_agent",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0x5ebac01114dc6607",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x574be03350d78f12",
+    "start_time": "2026-08-07T13:16:07.294377Z",
+    "end_time": "2026-08-07T13:16:16.665915Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.operation.name": "invoke_agent",
+        "gen_ai.agent.description": "",
+        "gen_ai.agent.name": "classifier_agent",
+        "gen_ai.conversation.id": "4023ac05-9ee1-4d0d-b594-7f08938ff401"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "generate_content openai/lmstudio",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0xbf407eeb5f1e766d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0xfbbb8a4f45d3300f",
+    "start_time": "2026-08-07T13:16:16.669244Z",
+    "end_time": "2026-08-07T13:16:27.244620Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.system": "gemini",
+        "gen_ai.operation.name": "generate_content",
+        "gen_ai.request.model": "openai/lmstudio",
+        "gen_ai.agent.name": "diagnostic_agent",
+        "gen_ai.conversation.id": "4023ac05-9ee1-4d0d-b594-7f08938ff401",
+        "gcp.vertex.agent.event_id": "b65e3165-1791-427f-a699-6333292169b0",
+        "gcp.vertex.agent.invocation_id": "e-3614e8ea-0e12-4415-8533-bf10c3042f97",
+        "gen_ai.response.finish_reasons": [
+            "stop"
+        ],
+        "gen_ai.usage.input_tokens": 280,
+        "gen_ai.usage.output_tokens": 63,
+        "gen_ai.usage.cache_read.input_tokens": 0
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "call_llm",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0xfbbb8a4f45d3300f",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0xd0598996a854cfc3",
+    "start_time": "2026-08-07T13:16:16.669131Z",
+    "end_time": "2026-08-07T13:16:27.244845Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.system": "gcp.vertex.agent",
+        "gen_ai.request.model": "openai/lmstudio",
+        "gcp.vertex.agent.invocation_id": "e-3614e8ea-0e12-4415-8533-bf10c3042f97",
+        "gcp.vertex.agent.session_id": "4023ac05-9ee1-4d0d-b594-7f08938ff401",
+        "gcp.vertex.agent.event_id": "b65e3165-1791-427f-a699-6333292169b0",
+        "gcp.vertex.agent.llm_request": "{}",
+        "gcp.vertex.agent.llm_response": "{}",
+        "gen_ai.usage.input_tokens": 280,
+        "gen_ai.usage.output_tokens": 63,
+        "gen_ai.usage.cache_read.input_tokens": 0,
+        "gen_ai.response.finish_reasons": [
+            "stop"
+        ]
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "invoke_agent diagnostic_agent",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0xd0598996a854cfc3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x574be03350d78f12",
+    "start_time": "2026-08-07T13:16:16.666598Z",
+    "end_time": "2026-08-07T13:16:27.244952Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.operation.name": "invoke_agent",
+        "gen_ai.agent.description": "",
+        "gen_ai.agent.name": "diagnostic_agent",
+        "gen_ai.conversation.id": "4023ac05-9ee1-4d0d-b594-7f08938ff401"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "invoke_node triage_router",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0x2043e36ce7af4b48",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x574be03350d78f12",
+    "start_time": "2026-08-07T13:16:27.245420Z",
+    "end_time": "2026-08-07T13:16:27.264758Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.operation.name": "invoke_node",
+        "gen_ai.conversation.id": "4023ac05-9ee1-4d0d-b594-7f08938ff401",
+        "gcp.vertex.agent.associated_event_ids": [
+            "685b57d7-e58c-4ca7-a90b-6f9cf3f7c041"
+        ]
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "invoke_workflow triage_workflow",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0x574be03350d78f12",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0xc03941779b310618",
+    "start_time": "2026-08-07T13:16:07.293531Z",
+    "end_time": "2026-08-07T13:16:27.265090Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.operation.name": "invoke_workflow",
+        "gen_ai.conversation.id": "4023ac05-9ee1-4d0d-b594-7f08938ff401",
+        "gen_ai.workflow.name": "triage_workflow"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "invocation",
+    "context": {
+        "trace_id": "0xc33cf4173618b3e7f46a5a041a7ed0c2",
+        "span_id": "0xc03941779b310618",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:07.258268Z",
+    "end_time": "2026-08-07T13:16:27.265159Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.request_handlers.jsonrpc_handler.JSONRPCHandler.on_message_send_stream",
+    "context": {
+        "trace_id": "0x6e67621c43c28be4dbdcc606df05831d",
+        "span_id": "0xcc41d8b0c08fdb6b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.270008Z",
+    "end_time": "2026-08-07T13:16:27.270032Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.request_handlers.default_request_handler.DefaultRequestHandler.on_message_send_stream",
+    "context": {
+        "trace_id": "0x0011d34266dc5a4f464a3da01a0b2d73",
+        "span_id": "0xb165e49e59b84bb3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.270495Z",
+    "end_time": "2026-08-07T13:16:27.270504Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.in_memory_queue_manager.InMemoryQueueManager.create_or_tap",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0x5de7550b84193210",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": "0xae171f4ced4e93f0",
+    "start_time": "2026-08-07T13:16:27.270668Z",
+    "end_time": "2026-08-07T13:16:27.270730Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.request_handlers.default_request_handler.DefaultRequestHandler._register_producer",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0xf7e30f33317df497",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": "0xae171f4ced4e93f0",
+    "start_time": "2026-08-07T13:16:27.270822Z",
+    "end_time": "2026-08-07T13:16:27.270838Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.request_handlers.default_request_handler.DefaultRequestHandler._setup_message_execution",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0xae171f4ced4e93f0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.270553Z",
+    "end_time": "2026-08-07T13:16:27.270850Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_consumer.EventConsumer.consume_all",
+    "context": {
+        "trace_id": "0xe3d3626a08be2e66317a394037082495",
+        "span_id": "0xabc9503981c0e5d0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.270908Z",
+    "end_time": "2026-08-07T13:16:27.270916Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.enqueue_event",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0x3608d84d52a0902e",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": "0x9c39d08a5eaa0b11",
+    "start_time": "2026-08-07T13:16:27.271302Z",
+    "end_time": "2026-08-07T13:16:27.271345Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x67f62919c961e6706c6dd4ce0bed61a7",
+        "span_id": "0xa8f1f0704a053f75",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.270993Z",
+    "end_time": "2026-08-07T13:16:27.273042Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.task_done",
+    "context": {
+        "trace_id": "0x2ac804263dc152fe53b703f7e03d2d61",
+        "span_id": "0x49ac650e9a4ea12f",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.273125Z",
+    "end_time": "2026-08-07T13:16:27.273137Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.request_handlers.default_request_handler.DefaultRequestHandler._send_push_notification_if_needed",
+    "context": {
+        "trace_id": "0x2c8b2e1109d9e8e851d15e8c68bf4c7a",
+        "span_id": "0xe0d7ff90e4908973",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.273570Z",
+    "end_time": "2026-08-07T13:16:27.273585Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.enqueue_event",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0xd48b7797d24b7a88",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": "0x9c39d08a5eaa0b11",
+    "start_time": "2026-08-07T13:16:27.310277Z",
+    "end_time": "2026-08-07T13:16:27.310312Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x3ef5bb9dfd6ef8433ea7f68447074ffd",
+        "span_id": "0xe0c7cc2ec97b1fb6",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.274081Z",
+    "end_time": "2026-08-07T13:16:27.311013Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.task_done",
+    "context": {
+        "trace_id": "0x4cdeaa43e04af523184d07db32517546",
+        "span_id": "0x1f36ac55bbd3888f",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.311095Z",
+    "end_time": "2026-08-07T13:16:27.311107Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.request_handlers.default_request_handler.DefaultRequestHandler._send_push_notification_if_needed",
+    "context": {
+        "trace_id": "0x801b021e0653e355d761cd7a3f31447d",
+        "span_id": "0xe6977c06b3a2361e",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.311184Z",
+    "end_time": "2026-08-07T13:16:27.311192Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x7387899602700087afe463bf522ee991",
+        "span_id": "0xd246b760c5e4df33",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.311503Z",
+    "end_time": "2026-08-07T13:16:27.815723Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:27.815691Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x670c58db8d0d5502193548c8e16007c7",
+        "span_id": "0xaef96b6749003855",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:27.815901Z",
+    "end_time": "2026-08-07T13:16:28.317878Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:28.317861Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x570f4acadf9df57668438cd48d7e19f2",
+        "span_id": "0x652694bab2063e67",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:28.318006Z",
+    "end_time": "2026-08-07T13:16:28.819888Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:28.819854Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x5701627f138c394a0f567d0b1d7b2597",
+        "span_id": "0x5f0519c1be73d0e1",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:28.820133Z",
+    "end_time": "2026-08-07T13:16:29.320673Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:29.320657Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x2c348e9b9f7f78c306c836a4b3da307b",
+        "span_id": "0xab4f35fea146d3d0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:29.320801Z",
+    "end_time": "2026-08-07T13:16:29.823421Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:29.823402Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x9ca15c5a0ca0ec9e7d8f18d4e73a8d3f",
+        "span_id": "0xd590fffa2b566e6c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:29.823567Z",
+    "end_time": "2026-08-07T13:16:30.324407Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:30.324389Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xfc981eeb30c08f4086b63f72aaa13aad",
+        "span_id": "0x1cf8892890de87fe",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:30.324558Z",
+    "end_time": "2026-08-07T13:16:30.826591Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:30.826571Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xf03b822cae59ea12ec9f441a1e92e89c",
+        "span_id": "0x390e41f46244fb54",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:30.826738Z",
+    "end_time": "2026-08-07T13:16:31.327372Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:31.327356Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xd6ef9da8d797c873592e616b08c1b30e",
+        "span_id": "0xc303f2c858b3cdd9",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:31.327503Z",
+    "end_time": "2026-08-07T13:16:31.829070Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:31.829052Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x1e1627e491e9a9a0278c4114a6bfc429",
+        "span_id": "0xa9f6502d98d63cb9",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:31.829214Z",
+    "end_time": "2026-08-07T13:16:32.330366Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:32.330346Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x9726ddc0ce43c75d16501875d4fc1b64",
+        "span_id": "0x3eb349f142a14754",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:32.330520Z",
+    "end_time": "2026-08-07T13:16:32.832049Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:32.832032Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xce01f32b8eb2dc34659af3d1456e288a",
+        "span_id": "0x53cd11aab6cea511",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:32.832195Z",
+    "end_time": "2026-08-07T13:16:33.333670Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:33.333616Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x3574154e9ce0330fd4d018c9af210a89",
+        "span_id": "0xf29562cace517b0f",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:33.333932Z",
+    "end_time": "2026-08-07T13:16:33.835185Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:33.835167Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.enqueue_event",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0x02d591fd7010cd61",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": "0x72315dff7d4fe30c",
+    "start_time": "2026-08-07T13:16:34.247325Z",
+    "end_time": "2026-08-07T13:16:34.247358Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xd04536617d25b6e474df3e810a721f94",
+        "span_id": "0xc0e5adf8afb60235",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:33.835386Z",
+    "end_time": "2026-08-07T13:16:34.247412Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.task_done",
+    "context": {
+        "trace_id": "0x56194e0c1ed54f19fbf4289ca287e83a",
+        "span_id": "0xca77bbf7fea14987",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:34.247475Z",
+    "end_time": "2026-08-07T13:16:34.247484Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.request_handlers.default_request_handler.DefaultRequestHandler._send_push_notification_if_needed",
+    "context": {
+        "trace_id": "0xce18f777205a6a4dc6c19337d68ea217",
+        "span_id": "0xbc8018fc76341d4d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:34.247545Z",
+    "end_time": "2026-08-07T13:16:34.247552Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {},
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "generate_content openai/lmstudio",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0xda8a2ba41b1900e6",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x99ab89f5b190854a",
+    "start_time": "2026-08-07T13:16:27.335618Z",
+    "end_time": "2026-08-07T13:16:34.247897Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.system": "gemini",
+        "gen_ai.operation.name": "generate_content",
+        "gen_ai.request.model": "openai/lmstudio",
+        "gen_ai.agent.name": "classifier_agent",
+        "gen_ai.conversation.id": "957146ed-d8b9-4ee6-a215-26591dac136e",
+        "gcp.vertex.agent.event_id": "59c24c63-0078-4974-8a10-f530fc8e0d4e",
+        "gcp.vertex.agent.invocation_id": "e-772ee052-568d-4739-ace5-5a2e53c5ebe9",
+        "gen_ai.response.finish_reasons": [
+            "stop"
+        ],
+        "gen_ai.usage.input_tokens": 303,
+        "gen_ai.usage.output_tokens": 43,
+        "gen_ai.usage.cache_read.input_tokens": 0
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "call_llm",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0x99ab89f5b190854a",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x669be2bc758993b4",
+    "start_time": "2026-08-07T13:16:27.335474Z",
+    "end_time": "2026-08-07T13:16:34.247981Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.system": "gcp.vertex.agent",
+        "gen_ai.request.model": "openai/lmstudio",
+        "gcp.vertex.agent.invocation_id": "e-772ee052-568d-4739-ace5-5a2e53c5ebe9",
+        "gcp.vertex.agent.session_id": "957146ed-d8b9-4ee6-a215-26591dac136e",
+        "gcp.vertex.agent.event_id": "59c24c63-0078-4974-8a10-f530fc8e0d4e",
+        "gcp.vertex.agent.llm_request": "{}",
+        "gcp.vertex.agent.llm_response": "{}",
+        "gen_ai.usage.input_tokens": 303,
+        "gen_ai.usage.output_tokens": 43,
+        "gen_ai.usage.cache_read.input_tokens": 0,
+        "gen_ai.response.finish_reasons": [
+            "stop"
+        ]
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "invoke_agent classifier_agent",
+    "context": {
+        "trace_id": "0xc4f60fc8bbaf2b585d72e92f544531bf",
+        "span_id": "0x669be2bc758993b4",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x95981bb9e7d70f4f",
+    "start_time": "2026-08-07T13:16:27.334310Z",
+    "end_time": "2026-08-07T13:16:34.248065Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "gen_ai.operation.name": "invoke_agent",
+        "gen_ai.agent.description": "",
+        "gen_ai.agent.name": "classifier_agent",
+        "gen_ai.conversation.id": "957146ed-d8b9-4ee6-a215-26591dac136e"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x00a0ad5242d85a82984594145e621220",
+        "span_id": "0x82e160c07697710c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:34.247836Z",
+    "end_time": "2026-08-07T13:16:34.749036Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:34.749017Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xe419a80f438b52eb1915d54a6d2922b0",
+        "span_id": "0xb86feeb0e0f0352a",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:34.749184Z",
+    "end_time": "2026-08-07T13:16:35.250902Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:35.250880Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x5d8f55ff419aa2434570200978388f08",
+        "span_id": "0xe31bf60de718b398",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:35.251083Z",
+    "end_time": "2026-08-07T13:16:35.752176Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:35.752158Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xfda5124b7963cb44a0001aba928347f0",
+        "span_id": "0x2b380016969bb819",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:35.752324Z",
+    "end_time": "2026-08-07T13:16:36.253969Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:36.253950Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xcb57c3676e5e10d3a5976edeba39e076",
+        "span_id": "0xfd0e6708c150063b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:36.254126Z",
+    "end_time": "2026-08-07T13:16:36.755558Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:36.755539Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x0d560bc8c890980aeac843c3771de83e",
+        "span_id": "0x03e6c31f6356101a",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:36.755711Z",
+    "end_time": "2026-08-07T13:16:37.256889Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:37.256870Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x8b83fbe08fecf17890969b732f7360f2",
+        "span_id": "0x1c9f71864b5dbb54",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:37.257036Z",
+    "end_time": "2026-08-07T13:16:37.758373Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:37.758335Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xe0507e98446bf2d639e38963f4be53ca",
+        "span_id": "0xb42300b24f2d7312",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:37.758683Z",
+    "end_time": "2026-08-07T13:16:38.259407Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:38.259390Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x756c492898131c05c915cbd3ed40d695",
+        "span_id": "0x50649e0e5ac3d5f7",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:38.259553Z",
+    "end_time": "2026-08-07T13:16:38.760983Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:38.760966Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x6fbeb80ac4a3a81916c35e7f22d8fbd8",
+        "span_id": "0x2c8f282f4ba9fec8",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:38.761120Z",
+    "end_time": "2026-08-07T13:16:39.263172Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:39.263160Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x17e6121f30547182291ed3b1cad34a88",
+        "span_id": "0x5dcd9a5679962060",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:39.263335Z",
+    "end_time": "2026-08-07T13:16:39.764637Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:39.764618Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xad5cb100fa6a9a5f9f5dde2fd16e19a7",
+        "span_id": "0x8e98b37070e00678",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:39.764805Z",
+    "end_time": "2026-08-07T13:16:40.266486Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:40.266428Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x3c8800faa2e47a21e3a8e380a35880c8",
+        "span_id": "0xdf665bf8277d80a4",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:40.267119Z",
+    "end_time": "2026-08-07T13:16:40.768694Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:40.768660Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0x520971438cb89b332a2d444a431df2a0",
+        "span_id": "0x640c040489dca5c5",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:40.769025Z",
+    "end_time": "2026-08-07T13:16:41.270775Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:41.270757Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "a2a.server.events.event_queue.EventQueue.dequeue_event",
+    "context": {
+        "trace_id": "0xa99a6fd59ff0283d7ee1b8133bcd03a0",
+        "span_id": "0xae3d8026829f0389",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.SERVER",
+    "parent_id": null,
+    "start_time": "2026-08-07T13:16:41.270923Z",
+    "end_time": "2026-08-07T13:16:41.772824Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {},
+    "events": [
+        {
+            "name": "exception",
+            "timestamp": "2026-08-07T13:16:41.772801Z",
+            "attributes": {
+                "exception.type": "asyncio.exceptions.CancelledError",
+                "exception.message": "",
+                "exception.stacktrace": "Traceback (most recent call last):\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/utils/telemetry.py\", line 228, in async_wrapper\n    result = await func(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/Projects/inteligent-ticket-triage/.venv/lib/python3.13/site-packages/a2a/server/events/event_queue.py\", line 111, in dequeue_event\n    event = await self.queue.get()\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/szyme/.local/share/uv/python/cpython-3.13.14-linux-x86_64-gnu/lib/python3.13/asyncio/queues.py\", line 186, in get\n    await getter\nasyncio.exceptions.CancelledError\n",
+                "exception.escaped": "False"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.42.1",
+            "service.name": "inteligent-ticket-triage"
+        },
+        "schema_url": ""
+    }
+}

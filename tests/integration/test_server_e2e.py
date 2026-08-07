@@ -35,10 +35,8 @@ from a2a.types import (
     SendStreamingMessageResponse,
     TextPart,
 )
-from requests.exceptions import RequestException
-
-
 from dotenv import load_dotenv
+from requests.exceptions import RequestException
 
 
 def is_llm_server_online() -> bool:

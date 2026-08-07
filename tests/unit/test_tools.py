@@ -1,5 +1,5 @@
 import pytest
-from app.agent import root_agent
+
 from app.tools import check_service_status, escalate_to_human, load_services_state
 
 

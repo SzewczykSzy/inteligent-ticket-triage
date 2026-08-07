@@ -58,8 +58,7 @@ def test_parse_triage_response_markdown_fenced():
 def test_triage_endpoint_v1_mocked_runner():
     mock_json = '{"category": "DATABASE", "priority": "HIGH", "recommended_action": "Check database connection pool", "needs_human_escalation": true}'
 
-    app_instance.state.runner = InMemoryRunner(
-        agent=root_agent, app_name="app")
+    app_instance.state.runner = InMemoryRunner(agent=root_agent, app_name="app")
 
     async def mock_run_async(*args, **kwargs):
         yield Event(
@@ -90,8 +89,7 @@ def test_triage_endpoint_v1_parse_retry():
     mock_invalid_json = '{"category": "INVALID", "priority": "HIGH"}'
     mock_valid_json = '{"category": "DATABASE", "priority": "HIGH", "recommended_action": "Check database connection pool", "needs_human_escalation": true}'
 
-    app_instance.state.runner = InMemoryRunner(
-        agent=root_agent, app_name="app")
+    app_instance.state.runner = InMemoryRunner(agent=root_agent, app_name="app")
 
     call_count = {"count": 0}
 
@@ -128,8 +126,7 @@ def test_triage_endpoint_v1_parse_retry():
 
 
 def test_triage_endpoint_v1_connection_error():
-    app_instance.state.runner = InMemoryRunner(
-        agent=root_agent, app_name="app")
+    app_instance.state.runner = InMemoryRunner(agent=root_agent, app_name="app")
 
     async def mock_run_async_connection_error(*args, **kwargs):
         raise ConnectionError("Failed to connect to LM Studio")
@@ -137,11 +134,11 @@ def test_triage_endpoint_v1_connection_error():
         yield
 
     with patch.object(
-        app_instance.state.runner, "run_async", side_effect=mock_run_async_connection_error
+        app_instance.state.runner,
+        "run_async",
+        side_effect=mock_run_async_connection_error,
     ):
-        payload = {
-            "ticket_text": "Database is not working."
-        }
+        payload = {"ticket_text": "Database is not working."}
         response = client.post("/api/v1/triage", json=payload)
         assert response.status_code == 503
         assert "LM Studio connection error" in response.json()["detail"]
@@ -152,7 +149,11 @@ def test_triage_endpoint_v1_multi_event_workflow():
         author="classifier_agent",
         content=types.Content(
             role="model",
-            parts=[types.Part.from_text(text='{"category": "DATABASE", "priority": "HIGH", "summary": "Database down"}')],
+            parts=[
+                types.Part.from_text(
+                    text='{"category": "DATABASE", "priority": "HIGH", "summary": "Database down"}'
+                )
+            ],
         ),
     )
     diagnostic_event = Event(
@@ -166,7 +167,11 @@ def test_triage_endpoint_v1_multi_event_workflow():
         author="escalation_agent",
         content=types.Content(
             role="model",
-            parts=[types.Part.from_text(text='{"category": "DATABASE", "priority": "HIGH", "recommended_action": "Escalate to DB admin", "needs_human_escalation": true}')],
+            parts=[
+                types.Part.from_text(
+                    text='{"category": "DATABASE", "priority": "HIGH", "recommended_action": "Escalate to DB admin", "needs_human_escalation": true}'
+                )
+            ],
         ),
     )
 
@@ -191,4 +196,3 @@ def test_triage_endpoint_v1_multi_event_workflow():
         assert data["priority"] == "HIGH"
         assert data["needs_human_escalation"] is True
         assert data["recommended_action"] == "Escalate to DB admin"
-

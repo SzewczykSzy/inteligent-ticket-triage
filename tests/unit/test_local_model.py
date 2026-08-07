@@ -8,8 +8,6 @@ from google.adk.models.llm_response import LlmResponse
 from google.genai import types
 from litellm.utils import ModelResponse
 
-from app.agent import root_agent
-
 
 def test_agent_model_configuration():
     """Verify sub-agent uses LiteLlm with the local endpoint settings."""
@@ -19,10 +17,7 @@ def test_agent_model_configuration():
     assert isinstance(sub_agent_model, LiteLlm)
     assert sub_agent_model.model == "openai/lmstudio"
     expected_api_base = os.getenv("LMSTUDIO_API_BASE", "http://localhost:1234/v1")
-    assert (
-        sub_agent_model._additional_args.get("api_base")
-        == expected_api_base
-    )
+    assert sub_agent_model._additional_args.get("api_base") == expected_api_base
     expected_api_key = os.getenv("LMSTUDIO_API_KEY")
     assert sub_agent_model._additional_args.get("api_key") == expected_api_key
 
@@ -68,5 +63,3 @@ async def test_lite_llm_generate_content_mocked():
             responses[0].content.parts[0].text
             == "Hello! I am ready to triage your ticket."
         )
-
-

@@ -19,6 +19,7 @@ import subprocess
 import sys
 import threading
 import time
+import urllib.request
 import uuid
 from collections.abc import Iterator
 from typing import Any
@@ -35,6 +36,18 @@ from a2a.types import (
     TextPart,
 )
 from requests.exceptions import RequestException
+
+
+def is_llm_server_online() -> bool:
+    api_base = os.getenv("LMSTUDIO_API_BASE", "http://localhost:1234/v1")
+    models_url = f"{api_base.rstrip('/')}/models"
+    try:
+        req = urllib.request.Request(models_url, headers={"User-Agent": "pytest"})
+        with urllib.request.urlopen(req, timeout=2) as response:
+            return response.status == 200
+    except Exception:
+        return False
+
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -125,6 +138,10 @@ def server_fixture(request: Any) -> Iterator[subprocess.Popen[str]]:
     yield server_process
 
 
+@pytest.mark.skipif(
+    not is_llm_server_online(),
+    reason="LM Studio local LLM server is offline or unreachable",
+)
 def test_adk_run_sse(server_fixture: subprocess.Popen[str]) -> None:
     """Test the native ADK route (/run_sse) end to end."""
     logger.info("Starting ADK /run_sse test")
@@ -169,6 +186,10 @@ def test_adk_run_sse(server_fixture: subprocess.Popen[str]) -> None:
     assert has_text_content, "Expected at least one event with text content"
 
 
+@pytest.mark.skipif(
+    not is_llm_server_online(),
+    reason="LM Studio local LLM server is offline or unreachable",
+)
 def test_a2a_chat_stream(server_fixture: subprocess.Popen[str]) -> None:
     """Test the A2A route using the JSON-RPC streaming protocol."""
     logger.info("Starting A2A chat stream test")

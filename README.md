@@ -62,7 +62,14 @@ docker compose up -d
 ```
 - The API will be available at `http://localhost:8000`.
 
-### 4. Testing the API
+### 4. Interactive Testing (ADK Web UI)
+You can test the agent interactively using the built-in ADK Web UI Playground. Make sure your local LM Studio instance is running, then start the playground:
+```bash
+uv run agents-cli playground
+```
+This will launch a local web interface where you can chat directly with the triage workflow, inspect intermediate agent turns, and debug tool executions.
+
+### 5. Testing the API
 You can test the triage endpoint using `curl`:
 ```bash
 curl -X POST "http://localhost:8000/api/v1/triage" \

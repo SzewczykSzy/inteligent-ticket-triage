@@ -1,5 +1,6 @@
-from enum import StrEnum
+from typing import Any
 
+from enum import StrEnum
 from pydantic import BaseModel, Field
 
 
@@ -60,3 +61,63 @@ class TriageResponse(BaseModel):
         description="Flag indicating if the ticket requires manual human intervention.",
         examples=[True],
     )
+
+
+class ClassificationResult(BaseModel):
+    category: TicketCategory = Field(
+        ...,
+        description="Categorized domain of the ticket.",
+    )
+    priority: TicketPriority = Field(
+        ...,
+        description="Assigned priority level based on severity and impact.",
+    )
+    summary: str = Field(
+        default="",
+        description="Brief summary of the issue detected by classifier.",
+    )
+
+
+class ServiceHealthResult(BaseModel):
+    service_name: str = Field(..., description="Name of the evaluated service.")
+    status: str = Field(
+        ...,
+        description="Status returned by service health check (e.g. HEALTHY, DEGRADED, DOWN, UNKNOWN).",
+    )
+    details: str | None = Field(default=None, description="Optional diagnostic notes.")
+
+
+class TriageWorkflowState(BaseModel):
+    ticket_text: str = Field(
+        ...,
+        description="Raw text content of the support ticket.",
+    )
+    user_id: str | None = Field(
+        default=None,
+        description="Optional ID of the user submitting the ticket.",
+    )
+    service_name: str | None = Field(
+        default=None,
+        description="Optional name of the affected service, if provided upfront.",
+    )
+    classification: ClassificationResult | None = Field(
+        default=None,
+        description="Result produced by ClassifierAgent (category, priority, summary).",
+    )
+    diagnostic_checks: list[ServiceHealthResult] = Field(
+        default_factory=list,
+        description="List of service health check results collected by DiagnosticAgent.",
+    )
+    needs_human_escalation: bool = Field(
+        default=False,
+        description="Flag indicating if human escalation is required or triggered.",
+    )
+    escalation_reason: str | None = Field(
+        default=None,
+        description="Reasoning provided if human escalation was triggered.",
+    )
+    final_response: TriageResponse | None = Field(
+        default=None,
+        description="Final schema output produced by EscalationAgent.",
+    )
+

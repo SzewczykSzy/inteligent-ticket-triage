@@ -145,3 +145,50 @@ def test_triage_endpoint_v1_connection_error():
         response = client.post("/api/v1/triage", json=payload)
         assert response.status_code == 503
         assert "LM Studio connection error" in response.json()["detail"]
+
+
+def test_triage_endpoint_v1_multi_event_workflow():
+    classifier_event = Event(
+        author="classifier_agent",
+        content=types.Content(
+            role="model",
+            parts=[types.Part.from_text(text='{"category": "DATABASE", "priority": "HIGH", "summary": "Database down"}')],
+        ),
+    )
+    diagnostic_event = Event(
+        author="diagnostic_agent",
+        content=types.Content(
+            role="model",
+            parts=[types.Part.from_text(text="Service status check result: DOWN")],
+        ),
+    )
+    escalation_event = Event(
+        author="escalation_agent",
+        content=types.Content(
+            role="model",
+            parts=[types.Part.from_text(text='{"category": "DATABASE", "priority": "HIGH", "recommended_action": "Escalate to DB admin", "needs_human_escalation": true}')],
+        ),
+    )
+
+    app_instance.state.runner = InMemoryRunner(agent=root_agent, app_name="app")
+
+    async def mock_multi_event_run_async(*args, **kwargs):
+        yield classifier_event
+        yield diagnostic_event
+        yield escalation_event
+
+    with patch.object(
+        app_instance.state.runner, "run_async", side_effect=mock_multi_event_run_async
+    ):
+        payload = {
+            "ticket_text": "Database is down!",
+            "service_name": "database_prod",
+        }
+        response = client.post("/api/v1/triage", json=payload)
+        assert response.status_code == 200, f"Unexpected response: {response.json()}"
+        data = response.json()
+        assert data["category"] == "DATABASE"
+        assert data["priority"] == "HIGH"
+        assert data["needs_human_escalation"] is True
+        assert data["recommended_action"] == "Escalate to DB admin"
+

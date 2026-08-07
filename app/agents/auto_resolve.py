@@ -6,7 +6,6 @@ from google.adk.models.lite_llm import LiteLlm
 
 from app.prompts import load_prompt
 from app.schemas import TriageResponse
-from app.tools import escalate_to_human
 
 load_dotenv()
 
@@ -19,11 +18,10 @@ def get_model() -> LiteLlm:
     )
 
 
-escalation_agent = Agent(
-    name="escalation_agent",
+auto_resolve_agent = Agent(
+    name="auto_resolve_agent",
     model=get_model(),
-    instruction=load_prompt("escalation.md"),
+    instruction=load_prompt("auto_resolve.md"),
     output_schema=TriageResponse,
-    tools=[escalate_to_human],
     mode="single_turn",
 )

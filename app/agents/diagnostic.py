@@ -23,4 +23,5 @@ diagnostic_agent = Agent(
     model=get_model(),
     instruction=load_prompt("diagnostic.md"),
     tools=[check_service_status],
+    mode="single_turn",
 )

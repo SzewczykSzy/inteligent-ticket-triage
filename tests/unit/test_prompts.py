@@ -1,4 +1,4 @@
-from app.agent import root_agent
+from app.agents import classifier_agent, diagnostic_agent, escalation_agent
 from app.prompts import load_prompt
 
 
@@ -11,8 +11,12 @@ def test_load_prompt():
     assert "CRITICAL" in prompt
 
 
-def test_root_agent_instruction_loaded():
-    instruction = root_agent.instruction
-    assert isinstance(instruction, str)
-    assert "IT Support Triage Agent" in instruction
-    assert "DATABASE" in instruction
+def test_workflow_agent_instructions_loaded():
+    instructions = [
+        classifier_agent.instruction,
+        diagnostic_agent.instruction,
+        escalation_agent.instruction,
+    ]
+    assert any("Classification Specialist" in inst for inst in instructions)
+    assert any("Diagnostics Specialist" in inst for inst in instructions)
+    assert any("Escalation Specialist" in inst for inst in instructions)

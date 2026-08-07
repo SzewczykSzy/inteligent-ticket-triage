@@ -12,21 +12,26 @@ from app.agent import root_agent
 
 
 def test_agent_model_configuration():
-    """Verify that root_agent uses LiteLlm with the local endpoint settings."""
-    assert isinstance(root_agent.model, LiteLlm)
-    assert root_agent.model.model == "openai/lmstudio"
+    """Verify sub-agent uses LiteLlm with the local endpoint settings."""
+    from app.agents import classifier_agent
+
+    sub_agent_model = classifier_agent.model
+    assert isinstance(sub_agent_model, LiteLlm)
+    assert sub_agent_model.model == "openai/lmstudio"
     expected_api_base = os.getenv("LMSTUDIO_API_BASE", "http://localhost:1234/v1")
     assert (
-        root_agent.model._additional_args.get("api_base")
+        sub_agent_model._additional_args.get("api_base")
         == expected_api_base
     )
     expected_api_key = os.getenv("LMSTUDIO_API_KEY")
-    assert root_agent.model._additional_args.get("api_key") == expected_api_key
+    assert sub_agent_model._additional_args.get("api_key") == expected_api_key
 
 
 @pytest.mark.asyncio
 async def test_lite_llm_generate_content_mocked():
     """Test LiteLlm model invocation using a mocked response."""
+    from app.agents import classifier_agent
+
     mock_response = ModelResponse(
         id="chatcmpl-123",
         choices=[
@@ -41,8 +46,9 @@ async def test_lite_llm_generate_content_mocked():
         model="openai/lmstudio",
     )
 
+    target_model = classifier_agent.model
     with patch.object(
-        root_agent.model.llm_client,
+        target_model.llm_client,
         "acompletion",
         new_callable=AsyncMock,
         return_value=mock_response,
@@ -54,7 +60,7 @@ async def test_lite_llm_generate_content_mocked():
         )
 
         responses: list[LlmResponse] = []
-        async for resp in root_agent.model.generate_content_async(request):
+        async for resp in target_model.generate_content_async(request):
             responses.append(resp)
 
         assert len(responses) == 1

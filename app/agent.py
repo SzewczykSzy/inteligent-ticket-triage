@@ -1,30 +1,36 @@
-import os
-
 from dotenv import load_dotenv
-from google.adk.agents import Agent
 from google.adk.apps import App
-from google.adk.models.lite_llm import LiteLlm
+from google.adk.workflow import Workflow
 
-from app.prompts import load_prompt
-from app.schemas import TriageResponse
-from app.tools import check_service_status, escalate_to_human
+from app.agents import (
+    auto_resolve_agent,
+    classifier_agent,
+    diagnostic_agent,
+    escalation_agent,
+    triage_router,
+)
 
 load_dotenv()
 
-
-root_agent = Agent(
-    name="root_agent",
-    model=LiteLlm(
-        model="openai/lmstudio",
-        api_base=os.getenv("LMSTUDIO_API_BASE", "http://localhost:1234/v1"),
-        api_key=os.getenv("LMSTUDIO_API_KEY"),
-    ),
-    instruction=load_prompt("triage_system.md"),
-    output_schema=TriageResponse,
-    tools=[check_service_status, escalate_to_human],
+triage_workflow = Workflow(
+    name="triage_workflow",
+    edges=[
+        ("START", classifier_agent),
+        (classifier_agent, diagnostic_agent),
+        (diagnostic_agent, triage_router),
+        (
+            triage_router,
+            {
+                "human_escalation": escalation_agent,
+                "auto_resolve": auto_resolve_agent,
+            },
+        ),
+    ],
 )
 
+root_agent = triage_workflow
+
 app = App(
-    root_agent=root_agent,
+    root_agent=triage_workflow,
     name="app",
 )

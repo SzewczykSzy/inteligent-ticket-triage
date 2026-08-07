@@ -8,15 +8,21 @@ To scale the application, reduce prompt complexity, and introduce deterministic 
 
 ### Target Architecture Overview
 
-The triage workflow decomposes processing into three specialized, sequential ADK agent steps orchestrated via `SequentialAgent`:
+The triage workflow decomposes processing into specialized sub-agents and a conditional Router node orchestrated via ADK 2.0 Graph `Workflow`:
 
 ```
-Incoming Ticket ➔ [1. Classifier Agent] ➔ [2. Diagnostic Agent] ➔ [3. Escalation & Response Agent] ➔ TriageResponse
+START ➔ [Classifier Agent] ➔ [Diagnostic Agent] ➔ [Triage Router Node]
+                                                          │
+                               ┌──────────────────────────┴──────────────────────────┐
+                               ▼ (human_escalation)                                 ▼ (auto_resolve)
+                   [Human Escalation Agent]                             [Auto Resolve Agent]
 ```
 
-1. **Classifier Agent (`TriageClassifierAgent`)**: Rapid initial classification (Category & Urgency).
-2. **Diagnostic Agent (`DiagnosticAgent`)**: Service verification & tool execution (`check_service_status`).
-3. **Escalation & Response Agent (`EscalationAgent`)**: Evaluates severity, triggers human escalation tool (`escalate_to_human`), and produces structured `TriageResponse`.
+1. **Classifier Agent (`classifier_agent`)**: Rapid initial classification (Category & Urgency, `mode="single_turn"`).
+2. **Diagnostic Agent (`diagnostic_agent`)**: Service verification & tool execution (`check_service_status`, `mode="single_turn"`).
+3. **Triage Router Node (`triage_router`)**: Evaluates severity and health check results to deterministically route to `"human_escalation"` or `"auto_resolve"`.
+4. **Human Escalation Agent (`escalation_agent`)**: Handles CRITICAL/HIGH incidents, triggers `escalate_to_human`, and formats `TriageResponse` (`needs_human_escalation=True`).
+5. **Auto Resolve Agent (`auto_resolve_agent`)**: Handles non-critical tickets, formats self-service resolution guidance, and returns `TriageResponse` (`needs_human_escalation=False`).
 
 ---
 
@@ -25,13 +31,15 @@ Incoming Ticket ➔ [1. Classifier Agent] ➔ [2. Diagnostic Agent] ➔ [3. Esca
 #### Task 1: Define Workflow State Schemas (`app/schemas.py`)
 - Define `TriageWorkflowState` Pydantic model to carry state between workflow nodes (raw ticket, category, urgency, service status results, escalation flag, and final output).
 
-#### Task 2: Implement Specialized Sub-Agents (`app/agents/`)
-- **`classifier_agent`**: Focused prompt for category/urgency detection without tool clutter.
-- **`diagnostic_agent`**: Prompt specialized in identifying referenced services and executing `check_service_status`.
-- **`escalation_agent`**: Prompt specialized in evaluating health results, executing `escalate_to_human`, and producing schema-compliant `TriageResponse`.
+#### Task 2: Implement Specialized Sub-Agents & Router (`app/agents/`)
+- **`classifier_agent`**: Focused prompt for category/urgency detection (`mode="single_turn"`).
+- **`diagnostic_agent`**: Prompt specialized in identifying referenced services and executing `check_service_status` (`mode="single_turn"`).
+- **`triage_router`**: Conditional `@node` evaluating health & priority for graph routing.
+- **`escalation_agent`**: Handles human escalation branch (`escalate_to_human`, `mode="single_turn"`).
+- **`auto_resolve_agent`**: Handles non-critical self-service resolution branch (`mode="single_turn"`).
 
-#### Task 3: Orchestrate ADK Workflow (`app/agent.py`)
-- Replace single `Agent` in `app/agent.py` with `SequentialAgent(name="triage_workflow", sub_agents=[classifier_agent, diagnostic_agent, escalation_agent])`.
+#### Task 3: Orchestrate ADK Workflow with Conditional Edges (`app/agent.py`)
+- Construct `Workflow(name="triage_workflow", edges=[("START", classifier_agent), (classifier_agent, diagnostic_agent), (diagnostic_agent, triage_router), (triage_router, {"human_escalation": escalation_agent, "auto_resolve": auto_resolve_agent})])`.
 - Export `app = App(root_agent=triage_workflow, name="app")`.
 
 #### Task 4: Update Runner & API Integration (`app/api/v1/triage.py`)

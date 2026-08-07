@@ -23,4 +23,5 @@ classifier_agent = Agent(
     model=get_model(),
     instruction=load_prompt("classifier.md"),
     output_schema=ClassificationResult,
+    mode="single_turn",
 )

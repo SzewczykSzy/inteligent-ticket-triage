@@ -3,7 +3,7 @@ from app.prompts import load_prompt
 
 
 def test_load_prompt():
-    prompt = load_prompt("triage_system.txt")
+    prompt = load_prompt("triage_system.md")
     assert "IT Support Triage Agent" in prompt
     assert "Ticket Categories" in prompt
     assert "Priority Levels" in prompt

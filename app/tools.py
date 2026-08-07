@@ -1,4 +1,32 @@
-def check_service_status(service_name: str) -> str:
+import json
+from pathlib import Path
+
+SERVICES_FILE_PATH = Path(__file__).parent.parent / "data" / "services_state.json"
+
+DEFAULT_MOCK_SERVICES = {
+    "database": "CRITICAL: High CPU utilization (98%) and connection pool exhausted. 500 internal server errors reported.",
+    "db": "CRITICAL: High CPU utilization (98%) and connection pool exhausted. 500 internal server errors reported.",
+    "network": "DEGRADED: Increased latency (250ms) and packet drop rate on regional gateway.",
+    "auth": "HEALTHY: Authentication service operational. SSO and token validation normal.",
+    "authentication": "HEALTHY: Authentication service operational. SSO and token validation normal.",
+    "infrastructure": "DEGRADED: Node worker-03 in NotReady state. Container reschedule in progress.",
+    "software": "HEALTHY: Microservices operating within normal latency SLAs.",
+    "payment": "HEALTHY: Payment gateway processing transactions normally.",
+}
+
+
+def load_services_state() -> dict[str, str]:
+    """Reads service state dictionary from local JSON file or returns defaults."""
+    if SERVICES_FILE_PATH.exists():
+        try:
+            with open(SERVICES_FILE_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return DEFAULT_MOCK_SERVICES
+
+
+async def check_service_status(service_name: str) -> str:
     """Checks operational health status of an IT service or infrastructure component.
 
     Args:
@@ -7,16 +35,7 @@ def check_service_status(service_name: str) -> str:
     Returns:
         A string containing the current status and health information of the queried service.
     """
-    mock_services = {
-        "database": "CRITICAL: High CPU utilization (98%) and connection pool exhausted. 500 internal server errors reported.",
-        "db": "CRITICAL: High CPU utilization (98%) and connection pool exhausted. 500 internal server errors reported.",
-        "network": "DEGRADED: Increased latency (250ms) and packet drop rate on regional gateway.",
-        "auth": "HEALTHY: Authentication service operational. SSO and token validation normal.",
-        "authentication": "HEALTHY: Authentication service operational. SSO and token validation normal.",
-        "infrastructure": "DEGRADED: Node worker-03 in NotReady state. Container reschedule in progress.",
-        "software": "HEALTHY: Microservices operating within normal latency SLAs.",
-        "payment": "HEALTHY: Payment gateway processing transactions normally.",
-    }
+    mock_services = load_services_state()
     key = service_name.lower().strip()
     for service_key, status in mock_services.items():
         if service_key in key or key in service_key:
@@ -25,7 +44,7 @@ def check_service_status(service_name: str) -> str:
     return f"Status for '{service_name}': HEALTHY: No known active incidents reported for this service."
 
 
-def escalate_to_human(urgency_level: str) -> dict[str, str | bool]:
+async def escalate_to_human(urgency_level: str) -> dict[str, str | bool]:
     """Escalates an urgent or high-severity IT ticket for immediate human operator review.
 
     Args:

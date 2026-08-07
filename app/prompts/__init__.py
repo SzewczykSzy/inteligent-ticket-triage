@@ -4,7 +4,7 @@ PROMPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 COMPONENTS_DIR = os.path.join(PROMPTS_DIR, "components")
 
 
-def load_prompt(prompt_name: str = "triage_system.md") -> str:
+def load_prompt(prompt_name: str = "classifier.md") -> str:
     """Load a markdown system prompt file dynamically from app/prompts/
 
     and resolve any {{component_name}} placeholders from app/prompts/components/.
